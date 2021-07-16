@@ -1,0 +1,16 @@
+# 設定箇所のみ抜粋
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password # docker-compose.ymlのPOSTGRES_PASSWORDで指定した値
+  pool: 5
+
+development:
+  <<: *default
+  database: myapp_development
+
+test:
+  <<: *default
+  database: myapp_test
