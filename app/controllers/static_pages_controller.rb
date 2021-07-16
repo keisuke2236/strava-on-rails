@@ -5,8 +5,13 @@ class StaticPagesController < ApplicationController
     client = get_strava_client
     @shiraishi_touge_efforts = client.segment_efforts(SHIRAISHI_TOUGE_ID)
     @shiraishi_profile = client.segment(SHIRAISHI_TOUGE_ID)
-    segment_leaderboard = client.segment_leaderboard(SHIRAISHI_TOUGE_ID)
     @athlete = client.athlete
+
+    @shiraishi_count = client.segment_efforts(SHIRAISHI_TOUGE_ID, per_page: 100).count
+
+    if client.segment_efforts(SHIRAISHI_TOUGE_ID, per_page: 100).count >= 100
+      @shiraishi_100 = true
+    end
   end
 
   private

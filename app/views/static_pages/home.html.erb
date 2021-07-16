@@ -2,6 +2,12 @@
 <p> 距離: <%= @shiraishi_profile.distance %></p>
 <p> 斜度: <%= @shiraishi_profile.average_grade %></p>
 
+<h1>あなたは白石峠御百度参りを<%= @shiraishi_100 ? '達成してます' : '達成してません' %></h1>
+<p> 現在：<%= @shiraishi_count %>回登りました！</p>
+<% if !@shiraishi_100 %>
+  <p> あと <%= 100 - @shiraishi_count %>回登れば達成です！</p>
+<% end %>
+
 <h1><%= @athlete.firstname %>のプロフィールを読み込みました</h1>
 <p> id: <%= @athlete.id %></p>
 <p> username: <%= @athlete.username %></p>
