@@ -2,6 +2,8 @@ class StravaLoginController < ApplicationController
   SHIRAISHI_TOUGE_ID = 633698
 
   def home
+    url = 'https://frozen-bastion-61341.herokuapp.com/redirect'
+    url = 'http://localhost:3000/strava_login/redirect' if Rails.env.development?
     @authorize_url = strava_client.authorize_url(
       redirect_uri: 'http://localhost:3000/strava_login/redirect',
       approval_prompt: 'force',
