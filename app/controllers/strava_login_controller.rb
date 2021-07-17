@@ -43,6 +43,6 @@ class StravaLoginController < ApplicationController
   end
 
   def strava_user_client(access_token)
-    client = Strava::Api::Client.new(access_token: access_token)
+    Strava::Api::Client.new(access_token: access_token)
   end
 end
